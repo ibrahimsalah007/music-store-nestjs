@@ -1,11 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
+import { Transactional } from 'typeorm-transactional';
 
 import { CreateAlbumDto } from './dto';
-import { Transactional } from 'typeorm-transactional';
 import { Album, AlbumRepository } from './album.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { FindManyOptions, FindOptionsWhere } from 'typeorm';
-import { PageOptionDto, PaginationService } from 'App/core';
 
 @Injectable()
 export class AlbumService {
