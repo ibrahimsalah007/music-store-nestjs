@@ -1,9 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { Column, Entity, JoinColumn, OneToOne, Repository } from 'typeorm';
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, Repository } from 'typeorm';
 
-import { ARTISTS, BaseEntity } from 'App/core';
+import { ARTISTS, ARTIST_ALBUMS, BaseEntity } from 'App/core';
 import { User } from 'App/user/user.entity';
+import { Album } from 'App/album/album.entity';
 
 @Entity({ name: ARTISTS })
 export class Artist extends BaseEntity {
@@ -18,6 +19,10 @@ export class Artist extends BaseEntity {
   @OneToOne(() => User)
   @JoinColumn()
   user: User;
+
+  @ManyToMany(() => Album, (album) => album.artists)
+  @JoinTable({ name: ARTIST_ALBUMS })
+  albums: Album[];
 }
 
 export type ArtistRepository = Repository<Artist>;
