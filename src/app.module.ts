@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 
 import { CoreModule } from './core/core.module';
 import { environmentVariablesSchema } from './core';
+import { ArtistModule } from './artist/artist.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { environmentVariablesSchema } from './core';
     AuthModule,
     UserModule,
     CoreModule,
+    ArtistModule,
   ],
   controllers: [],
 })
