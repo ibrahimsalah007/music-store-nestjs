@@ -14,6 +14,7 @@ import { CoreModule } from './core/core.module';
 import { environmentVariablesSchema } from './core';
 import { ArtistModule } from './artist/artist.module';
 import { AlbumModule } from './album/album.module';
+import { SongModule } from './song/song.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { AlbumModule } from './album/album.module';
     CoreModule,
     ArtistModule,
     AlbumModule,
+    SongModule,
   ],
   controllers: [],
 })
